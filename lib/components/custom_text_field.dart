@@ -1,4 +1,6 @@
 
+import 'package:albedo/components/colours.dart';
+import 'package:albedo/components/text_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -33,18 +35,18 @@ class CustomTextField extends StatelessWidget {
         decoration: InputDecoration(
           labelText: label,
           labelStyle: TextStyle(
-            color: Color(0xFF874590),
+            color: AppColors.primary,fontSize: TextSizes.bodyTextSize(context),
           ),
           contentPadding: EdgeInsets.only(bottom: 2.0),
           border: UnderlineInputBorder(),
           enabledBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF874590),
+              color: AppColors.primary,
             ),
           ),
           focusedBorder: UnderlineInputBorder(
             borderSide: BorderSide(
-              color: Color(0xFF874590),
+              color: AppColors.primary,
               width: 2.0,
             ),
           ),

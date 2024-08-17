@@ -1,4 +1,6 @@
+import 'package:albedo/components/colours.dart';
 import 'package:albedo/components/custom_radio_button.dart';
+import 'package:albedo/components/text_sizes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:albedo/components/custom_text_field.dart';
@@ -11,7 +13,7 @@ class CreateTeacherAccount extends StatefulWidget {
 
 class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
   bool _isOnlineSelected = false;
-  List<String> _selectedValues = []; 
+  List<String> _selectedValues = [];
 
   void _handleSelection(bool isSelected, String label) {
     setState(() {
@@ -39,10 +41,10 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
             begin: Alignment.centerLeft,
             end: Alignment.centerRight,
             colors: [
-              Color(0xFFD1C4E9),
-              Color(0xFFFFFFFE),
-              Color(0xFFFFFFFE),
-              Color(0xFFD1C4E9),
+              AppColors.secondary,
+              AppColors.background,
+              AppColors.background,
+              AppColors.secondary,
             ],
             stops: [
               0.0,
@@ -92,14 +94,14 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
       child: Center(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween, 
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+             Text(
               'Create Teacher Account',
               style: TextStyle(
-                fontSize: 24.0,
+                fontSize: TextSizes.headingSize(context),
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF874590),
+                color: AppColors.textColor,
               ),
             ),
             const SizedBox(height: 16),
@@ -109,7 +111,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: const Color(0xFF874590),
+                    color: AppColors.primary,
                     width: 2.0,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
@@ -136,11 +138,11 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                     ElevatedButton(
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
-                          backgroundColor: Colors.orange),
-                      child: const Text(
+                          backgroundColor: AppColors.button),
+                      child:  Text(
                         'Create Account',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.white,fontSize: TextSizes.subheadingSize(context),
                         ),
                       ),
                     ),
@@ -148,7 +150,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                 ),
               ),
             ),
-            const SizedBox(height: 16), 
+            const SizedBox(height: 16),
             _buildFooter(),
           ],
         ),
@@ -164,12 +166,12 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
           crossAxisAlignment: CrossAxisAlignment.center,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            const Text(
+            Text(
               'Create Teacher Account',
               style: TextStyle(
-                fontSize: 24.0,
+                fontSize: TextSizes.headingSize(context),
                 fontWeight: FontWeight.bold,
-                color: Color(0xFF874590),
+                color: AppColors.textColor,
               ),
             ),
             const SizedBox(height: 16),
@@ -179,7 +181,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                 padding: const EdgeInsets.all(16.0),
                 decoration: BoxDecoration(
                   border: Border.all(
-                    color: const Color(0xFF874590),
+                    color: AppColors.primary,
                   ),
                   borderRadius: BorderRadius.circular(8.0),
                 ),
@@ -205,7 +207,12 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                       onPressed: () {},
                       style: ElevatedButton.styleFrom(
                           backgroundColor: Colors.orange),
-                      child: const Text('Create Account'),
+                      child: Text(
+                        'Create Account',
+                        style: TextStyle(
+                          fontSize: TextSizes.bodyTextSize(context),
+                        ),
+                      ),
                     ),
                   ],
                 ),
@@ -235,6 +242,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
         _buildExperienceField(context),
         const CustomTextField(label: 'Company Name Previous Worked'),
         _buildSelectionBoxes(label: 'Preferred Class'),
+        SizedBox(height: 5,),
         _buildSelectionBoxes(label: 'Preferred Subject'),
         _buildDropdownField(context,
             label: 'Syllabus', hintText: '--Select Syllabus--'),
@@ -259,57 +267,66 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
         children: [
           Text(
             label,
-            style: const TextStyle(
-              color: Color(0xFF874590),
+            style: TextStyle(
+              color: AppColors.textColor,
               fontWeight: FontWeight.bold,
-              fontSize: 16.0,
+              fontSize: TextSizes.bodyTextSize(context),
             ),
           ),
           Theme(
             data: Theme.of(context).copyWith(
-              canvasColor: const Color(0xFFD1C4E9),
+              canvasColor: AppColors.secondary,
             ),
             child: DropdownButtonFormField<String>(
               decoration: InputDecoration(
                 hintText: hintText,
-                hintStyle: const TextStyle(
-                  color: Color(0xFF874590),
+                hintStyle:  TextStyle(
+                  color: AppColors.textColor,
+                  fontSize: TextSizes.bodyTextSize(context),
                 ),
                 border: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: Color(0xFF874590),
+                    color: AppColors.primary,
                     width: 2.0,
                   ),
                 ),
                 enabledBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: Color(0xFF874590),
+                    color: AppColors.primary,
                     width: 2.0,
                   ),
                 ),
                 focusedBorder: OutlineInputBorder(
                   borderRadius: BorderRadius.circular(8.0),
                   borderSide: const BorderSide(
-                    color: Color(0xFF874590),
+                    color: AppColors.primary,
                     width: 2.0,
                   ),
                 ),
                 contentPadding: const EdgeInsets.symmetric(horizontal: 12.0),
               ),
-              dropdownColor: const Color(0xFFD1C4E9),
+              dropdownColor: AppColors.secondary,
               style: const TextStyle(
-                color: Color(0xFF874590),
+                color: AppColors.textColor,
               ),
-              items: const [
+              items: [
                 DropdownMenuItem(
                   value: 'option1',
-                  child: Text('Option 1'),
+                  child: Text(
+                    'Option 1',
+                    style: TextStyle(
+                      fontSize: TextSizes.bodyTextSize(context),
+                    ),
+                  ),
                 ),
                 DropdownMenuItem(
                   value: 'option2',
-                  child: Text('Option 2'),
+                  child: Text('Option 2',
+                      style: TextStyle(
+                        fontSize: TextSizes.bodyTextSize(context),
+                      )),
                 ),
               ],
               onChanged: (value) {},
@@ -330,9 +347,9 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
           children: [
             Text(
               label,
-              style: const TextStyle(
-                color: Color(0xFF874590),
-                fontSize: 16.0,
+              style:  TextStyle(
+                color: AppColors.textColor,
+                fontSize:  TextSizes.bodyTextSize(context),
                 fontWeight: FontWeight.bold,
               ),
             ),
@@ -412,11 +429,11 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             'Experience',
             style: TextStyle(
-              color: Color(0xFF874590),
-              fontSize: 16.0,
+              color: AppColors.textColor,
+              fontSize:  TextSizes.subheadingSize(context),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -427,7 +444,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                 child: Container(
                   decoration: BoxDecoration(
                     border: Border.all(
-                      color: const Color(0xFF874590),
+                      color: AppColors.primary,
                       width: 2.0,
                     ),
                     borderRadius: BorderRadius.circular(8.0),
@@ -462,7 +479,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                         width: 40,
                         height: 60,
                         decoration: const BoxDecoration(
-                          color: Color(0xFF874590),
+                          color: AppColors.primary,
                         ),
                         child: Column(
                           children: [
@@ -502,11 +519,11 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const Text(
+           Text(
             'Preferred Mode',
             style: TextStyle(
-              color: Color(0xFF874590),
-              fontSize: 16.0,
+              color: AppColors.textColor,
+              fontSize:TextSizes.bodyTextSize(context),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -546,9 +563,9 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
         children: [
           Text(
             label,
-            style: const TextStyle(
-              color: Color(0xFF874590),
-              fontSize: 16.0,
+            style:  TextStyle(
+              color: AppColors.textColor,
+              fontSize: TextSizes.bodyTextSize(context),
               fontWeight: FontWeight.bold,
             ),
           ),
@@ -556,7 +573,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
           Container(
             decoration: BoxDecoration(
               border: Border.all(
-                color: const Color(0xFF874590),
+                color: AppColors.primary,
                 width: 2.0,
               ),
               borderRadius: BorderRadius.circular(8.0),
@@ -565,7 +582,7 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
               children: [
                 Container(
                   decoration: const BoxDecoration(
-                    color: Color(0xFF874590),
+                    color: AppColors.primary,
                   ),
                   child: TextButton(
                     onPressed: () {
@@ -573,25 +590,26 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
                     },
                     style: TextButton.styleFrom(
                       foregroundColor: Colors.white,
-                      backgroundColor: const Color(0xFF874590),
+                      backgroundColor: AppColors.primary,
                       padding: const EdgeInsets.symmetric(horizontal: 12.0),
                       minimumSize: const Size(120, 60),
                     ),
-                    child: const Text(
+                    child:  Text(
                       'Choose File',
                       style: TextStyle(
                         color: Colors.white,
-                        fontSize: 16.0,
+                        fontSize: TextSizes.bodyTextSize(context),
                       ),
                     ),
                   ),
                 ),
-                const Expanded(
+                 Expanded(
                   child: TextField(
                     decoration: InputDecoration(
                       hintText: 'No file chosen',
                       hintStyle: TextStyle(
-                        color: Color(0xFF874590),
+                        color: AppColors.textColor,
+                        fontSize: TextSizes.bodyTextSize(context),
                       ),
                       border: InputBorder.none,
                       contentPadding: EdgeInsets.symmetric(horizontal: 16.0),
@@ -611,11 +629,12 @@ class _CreateTeacherAccountState extends State<CreateTeacherAccount> {
     return Container(
       padding: const EdgeInsets.all(8.0),
       width: double.infinity,
-      color: const Color(0xff00246B),
-      child: const Text(
+      color: AppColors.footerBackground,
+      child:  Text(
         'All Copyright Reserved @ albedo©2024',
         textAlign: TextAlign.center,
-        style: TextStyle(color: Colors.white),
+        style: TextStyle(color: Colors.white,fontSize: TextSizes.bodyTextSize(context),),
+
       ),
     );
   }

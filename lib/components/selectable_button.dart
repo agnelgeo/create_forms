@@ -1,3 +1,4 @@
+import 'package:albedo/components/colours.dart';
 import 'package:flutter/material.dart';
 
 class SelectableButton extends StatefulWidget {
@@ -39,7 +40,7 @@ class _SelectableButtonState extends State<SelectableButton> {
         height: widget.height,
         padding: EdgeInsets.symmetric(vertical: widget.height * 0.1),
         decoration: BoxDecoration(
-          color: _isSelected ? Color(0xFF6A1B9A) : Color(0xFFD1C4E9),
+          color: _isSelected ? Color(0xFF6A1B9A) : AppColors.secondary,
           borderRadius: BorderRadius.circular(widget.height * 0.4),
         ),
         child: Row(

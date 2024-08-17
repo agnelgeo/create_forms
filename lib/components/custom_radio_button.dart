@@ -1,3 +1,5 @@
+import 'package:albedo/components/colours.dart';
+import 'package:albedo/components/text_sizes.dart';
 import 'package:flutter/material.dart';
 
 class CustomRadioButton extends StatelessWidget {
@@ -13,6 +15,7 @@ class CustomRadioButton extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+
     return Expanded(
       child: Row(
         children: [
@@ -24,10 +27,10 @@ class CustomRadioButton extends StatelessWidget {
               decoration: BoxDecoration(
                 shape: BoxShape.circle,
                 border: Border.all(
-                  color: Color(0xFF874590), 
+                  color: AppColors.primary,
                   width: 2.0,
                 ),
-                color: isSelected ? Color(0xFF874590) : Colors.transparent,
+                color: isSelected ? AppColors.primary : Colors.transparent,
               ),
               child: isSelected
                   ? Center(
@@ -36,7 +39,7 @@ class CustomRadioButton extends StatelessWidget {
                         height: 12.0,
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
-                          color: Colors.white, 
+                          color: Colors.white,
                         ),
                       ),
                     )
@@ -47,7 +50,8 @@ class CustomRadioButton extends StatelessWidget {
           Text(
             title,
             style: TextStyle(
-              color: Color(0xFF874590), 
+              fontSize: TextSizes.bodyTextSize(context), 
+              color: AppColors.primary,
             ),
           ),
         ],
